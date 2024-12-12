@@ -46,11 +46,11 @@ repositories {
 }
 
 sonar {
-	properties {
-		property "sonar.projectKey", "Rish02Sharma_SeederApp"
-		property "sonar.organization", "rish02sharma"
-		property "sonar.host.url", "https://sonarcloud.io"
-	}
+  properties {
+    property "sonar.projectKey", "RishabhSharma31_Cashkick"
+    property "sonar.organization", "rishabhsharma31"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 dependencies {
