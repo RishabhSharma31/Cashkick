@@ -1,0 +1,69 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.5'
+	id 'io.spring.dependency-management' version '1.1.6'
+	id "jacoco"
+	id "org.sonarqube" version "5.1.0.4882"
+}
+
+group = 'com.zemoso'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+jacoco {
+	toolVersion = "0.8.9"  // You can specify the version here, e.g., 0.8.8 or any other latest version
+}
+
+test {
+	useJUnitPlatform()  // If you're using JUnit 5; otherwise, use the default configuration
+
+	// Enable JaCoCo code coverage reporting after running the tests
+	finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+	dependsOn test  // Ensures the report is generated after tests are run
+
+	reports {
+		xml.required = true  // Generate XML report for CI tools (like Jenkins, SonarQube, etc.)
+		xml.outputLocation = file("${buildDir}/jacocoTestReport.xml") // Output directory for XML reports
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+sonar {
+  properties {
+    property "sonar.projectKey", "RishabhSharma31_Cashkick"
+    property "sonar.organization", "rishabhsharma31"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.1.1'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
