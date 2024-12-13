@@ -1,16 +1,21 @@
-name: Build
+name: SonarQube
 on:
   push:
     branches:
-      - [main, dev]
+      - main
+      - dev
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
       - "./seeder"
+
 jobs:
   build:
     name: Build and analyze
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./seeder"
     steps:
       - uses: actions/checkout@v4
         with:
