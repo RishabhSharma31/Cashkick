@@ -4,11 +4,11 @@
  */
 
 module.exports = {
-  testEnvironment: "jsdom",
+  testEnvironment: "jest-environment-jsdom",
   coverageDirectory: "coverage",
   collectCoverage: true,
-  collectCoverageFrom: ["src/**/*.{js,jsx}", "!src/**/*stories.{js,jsx}"],
-  setupFiles: ["./src/SetupTests.js"],
+  collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/**/*stories.{ts,tsx}"],
+  setupFilesAfterEnv: ["./src/SetupTests.js"],
   coveragePathIgnorePatterns: [
     "<rootDir>/node_modules/",
     ".story.js",
@@ -23,7 +23,7 @@ module.exports = {
     "<rootDir>/src/utils/commandCentermockData.js",
   ],
   transform: {
-    "^.+\\.js?$": "babel-jest",
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
       "./assetsTransformer.js",
   },
@@ -32,4 +32,5 @@ module.exports = {
   },
   verbose: true,
   moduleDirectories: ["node_modules", "src"],
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
 };

@@ -12,5 +12,9 @@ const config = {
     name: "@storybook/react-webpack5",
     options: {},
   },
+  babel: async (options) => ({
+    ...options,
+    presets: [...options.presets, "@babel/preset-react"],
+  }),
 };
 export default config;
