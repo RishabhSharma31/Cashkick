@@ -12,13 +12,13 @@ const Icon: React.FC<IconProps> = ({ iconPath, cssDesign }) => {
     return iconPath;
   }
 
-  if (typeof iconPath === 'string') {
+  if (typeof iconPath === "string") {
     return (
-      <SvgIcon 
-        className={`icon ${cssDesign}`} 
-        component="div" 
-        dangerouslySetInnerHTML={{ __html: iconPath }}
-      />
+      <SvgIcon
+        className={`icon ${cssDesign}`}
+        component="div">
+          <div dangerouslySetInnerHTML={{ __html: iconPath }} />
+      </SvgIcon>
     );
   }
 

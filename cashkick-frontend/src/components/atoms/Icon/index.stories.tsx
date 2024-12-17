@@ -16,11 +16,11 @@ export default {
 
 const Template: StoryFn<IconProps> = (args) => <Icon {...args} />;
 
-// export const Default = Template.bind({});
-// Default.args = {
-//   iconPath: "./icon.svg",
-//   cssDesign: "default-icon",
-// };
+export const Default = Template.bind({});
+Default.args = {
+  iconPath: '<svg data-testid="svg-icon"><circle cx="50" cy="50" r="40" /></svg>',
+  cssDesign: "default-icon",
+};
 
 export const InlineSvg = Template.bind({});
 InlineSvg.args = {

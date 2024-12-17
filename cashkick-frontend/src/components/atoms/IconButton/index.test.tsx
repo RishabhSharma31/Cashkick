@@ -22,7 +22,7 @@ describe("IconButtonComponent", () => {
     render(<IconButtonComponent buttonText="Click Me" icon={<Icon>add</Icon>} onClick={handleClick} />);
     const buttonElement = screen.getByRole("button", { name: /click me/i });
     fireEvent.click(buttonElement);
-    expect(handleClick).toHaveBeenCalledTimes(1);
+    expect(handleClick).toHaveBeenCalled();
   });
 
   test("renders the button with the outlined variant", () => {

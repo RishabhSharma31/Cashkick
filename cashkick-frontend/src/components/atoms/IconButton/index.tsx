@@ -10,7 +10,7 @@ export interface IconButtonProps {
 
 const IconButtonComponent: React.FC<IconButtonProps> = ({ icon, buttonText, onClick }) => {
   return (
-    <Button variant="outlined" startIcon={icon}>
+    <Button variant="outlined" startIcon={icon} onClick={onClick}>
         {buttonText}
     </Button>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import ButtonComponent, { ButtonProps } from "./index"; // Adjust import path as needed
+import ButtonComponent, { ButtonProps } from "./index";
 import '@testing-library/jest-dom';
 
 describe('ButtonComponent', () => {
@@ -14,8 +14,8 @@ describe('ButtonComponent', () => {
   it('renders correctly with default props', () => {
     render(<ButtonComponent {...defaultProps} />);
     expect(screen.getByText(defaultProps.buttonText)).toBeInTheDocument();
-    expect(screen.getByRole('button')).toHaveAttribute('variant', 'contained');
-    expect(screen.getByRole('button')).toHaveAttribute('color', 'primary');
+    expect(screen.getByText(defaultProps.buttonText)).toHaveClass("MuiButton-root"); 
+    expect(screen.getByText(defaultProps.buttonText)).toHaveClass("MuiButton-containedPrimary");
   });
 
   it('handles onClickEvent', () => {
@@ -26,12 +26,14 @@ describe('ButtonComponent', () => {
 
   it('applies different variant correctly', () => {
     render(<ButtonComponent {...defaultProps} propVariant="outlined" />);
-    expect(screen.getByRole('button')).toHaveAttribute('variant', 'outlined');
+    expect(screen.getByText(defaultProps.buttonText)).toHaveClass("MuiButton-root"); 
+    expect(screen.getByText(defaultProps.buttonText)).toHaveClass("MuiButton-outlinedPrimary");
   });
 
   it('applies different color correctly', () => {
     render(<ButtonComponent {...defaultProps} color="success" />);
-    expect(screen.getByRole('button')).toHaveAttribute('color', 'success');
+    expect(screen.getByText(defaultProps.buttonText)).toHaveClass("MuiButton-root"); 
+    expect(screen.getByText(defaultProps.buttonText)).toHaveClass("MuiButton-containedSuccess");
   });
 
   it('displays correct text', () => {
