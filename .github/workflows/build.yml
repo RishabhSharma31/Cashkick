@@ -1,0 +1,42 @@
+name: Github actions for Front End PR's and Pushes
+
+on:
+  push:
+    branches: [main, FE-dev]
+    paths:
+      - "./cashkick-frontend"
+  pull_request:
+    branches: [main, FE-dev]
+    paths:
+      - "./cashkick-frontend"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./cashkick-frontend"
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install npm dependency
+        run: npm install
+      - name: Build npm project
+        run: npm run build --if-present
+      - name: Install jest
+        run: npm i -g jest
+        working-directory: "./cashkick-frontend"
+      - name: Run tests
+        run: jest -u --config ./jest.config.js --coverage
+        working-directory: "./cashkick-frontend"
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: project_base_dir
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
