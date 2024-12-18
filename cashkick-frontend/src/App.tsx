@@ -16,7 +16,7 @@ const App = () => {
         buttonText="Click Me"
         onClickEvent={handleClick}
         propVariant="contained"
-        color="primary"
+        customColor="#4CAF50"
       />
       {/* Applies global styles, including the black background */}
     </ThemeProvider>

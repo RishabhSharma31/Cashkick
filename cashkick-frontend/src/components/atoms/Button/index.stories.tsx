@@ -36,7 +36,7 @@ export const NewCashkick = Template.bind({});
 NewCashkick.args = {
   buttonText: "New Cash Kick",
   propVariant: "contained",
-  color: "primary",
+  customColor: "#6C5DD3",
 };
 
 // Review Your Credit Button Story
@@ -44,7 +44,7 @@ export const ReviewCredit = Template.bind({});
 ReviewCredit.args = {
   buttonText: "Review Your Credit",
   propVariant: "contained",
-  color: "primary",
+  customColor: "#6C5DD3",
 };
 
 // Submit Your Credit Button Story
@@ -52,7 +52,7 @@ export const SubmitCredit = Template.bind({});
 SubmitCredit.args = {
   buttonText: "Submit Your Credit",
   propVariant: "contained",
-  color: "primary",
+  customColor: "#6C5DD3",
 };
 
 // Create Cash Kick Button Story
@@ -60,7 +60,7 @@ export const CreateCashkick = Template.bind({});
 CreateCashkick.args = {
   buttonText: "Create Cash Kick",
   propVariant: "contained",
-  color: "primary",
+  customColor: "#6C5DD3",
 };
 
 // Cancel Button Story
@@ -68,5 +68,5 @@ export const Cancel = Template.bind({});
 Cancel.args = {
   buttonText: "Cancel",
   propVariant: "text",
-  color: "primary",
+  customColor: "#2D2D30",
 };
