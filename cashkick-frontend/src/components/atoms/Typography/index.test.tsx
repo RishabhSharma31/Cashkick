@@ -3,6 +3,12 @@ import { render, screen } from "@testing-library/react";
 import Typography from "./index";
 
 describe("Typography Component", () => {
+  const buttonStyle = {
+    color: "#A0A3BD",
+    fontSize: "0.875rem",
+    fontWeight: "500",
+  }
+
   test("renders the text correctly", () => {
     render(<Typography text="Hello World" />);
     const textElement = screen.getByText(/hello world/i);
@@ -21,16 +27,13 @@ describe("Typography Component", () => {
     expect(textElement).toHaveClass("MuiTypography-body1");
   });
 
-  test("applies the correct CSS design class", () => {
-    render(<Typography text="Styled Text" cssDesign="custom-class" />);
-    const textElement = screen.getByText(/styled text/i);
-    expect(textElement).toHaveClass("typography custom-class");
-  });
-
-  test("renders with both variant and custom CSS", () => {
-    render(<Typography text="Combined Style" variant="h2" cssDesign="custom-class" />);
-    const textElement = screen.getByText(/combined style/i);
-    expect(textElement).toHaveClass("MuiTypography-h2");
-    expect(textElement).toHaveClass("typography custom-class");
+  test("applies custom CSS styles correctly", () => {
+    render(<Typography text="Default Text" cssDesign={buttonStyle} />);
+    const typographyElement = screen.getByText("Default Text");
+    expect(typographyElement).toHaveStyle({
+      color: "#A0A3BD",
+      fontSize: "0.875rem",
+      fontWeight: "500",
+    });
   });
 });
