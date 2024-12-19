@@ -4,8 +4,8 @@ const theme = createTheme({
   palette: {
     mode: "dark", // Switches to dark mode (optional, enhances consistency with a black background)
     background: {
-      default: "#000000", // Black background for the app
-      paper: "#000000", // Black background for components like Card
+      default: "#19181C", // Black background for the app
+      paper: "#19181C", // Black background for components like Card
     },
     primary: {
       main: "#1976d2",
