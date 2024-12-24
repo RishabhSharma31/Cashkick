@@ -26,6 +26,10 @@ module.exports = {
         test: /\.css$/, // if you're using CSS
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(png|jpg|jpeg|svg)$/,
+        use: ["file-loader"],
+      },
     ],
   },
   devServer: {

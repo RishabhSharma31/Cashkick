@@ -7,6 +7,7 @@ export interface ButtonProps {
   propVariant?: "text" | "outlined" | "contained";
   color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning" | string; 
   customColor?: string;
+  cssDesign?: React.CSSProperties;
 }
 
 const ButtonComponent: React.FC<ButtonProps> = ({
@@ -15,22 +16,24 @@ const ButtonComponent: React.FC<ButtonProps> = ({
   propVariant = "contained",
   color,
   customColor,
+  cssDesign
 }) => {
   const buttonStyles = customColor
     ? {
         backgroundColor: customColor,
-        color: "#fff", // Adjust as necessary for contrast
+        color: "#fff", 
         "&:hover": {
-          backgroundColor: `${customColor}CC`, // Slightly transparent for hover effect
+          backgroundColor: `${customColor}CC`, 
         },
+        ...cssDesign,
       }
-    : undefined;
+    : cssDesign;
 
   return (
     <Button
       variant={propVariant}
       onClick={onClickEvent}
-      color={color as any} // Cast to allow MUI color variants or use `sx` for styles
+      color={color as any} 
       sx={buttonStyles}
     >
       {buttonText}
