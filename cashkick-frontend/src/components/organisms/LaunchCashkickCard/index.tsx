@@ -23,25 +23,6 @@ const CardContainer = styled(Box)(({ theme }) => ({
   maxWidth: '250px'
 }));
 
-const styles = {
-  button: {
-    width: '100%',
-    borderRadius: '8px',
-  },
-  title: {
-    fontSize: '24px',
-    marginBottom: '10px',
-    marginRight: '80px',
-    weight: 600,
-    color: '#FFFFFF',
-  },
-  description: {
-    fontSize: '16px',
-    marginBottom: '20px',
-    color: '#A5A5A6',
-  },
-};
-
 const CashKickCard: React.FC<CashKickCardProps> = ({
   title,
   description,
@@ -53,13 +34,13 @@ const CashKickCard: React.FC<CashKickCardProps> = ({
 
   return (
     <CardContainer>
-      <Typography variant="h5" text={title} cssDesign={styles.title} />
-      <Typography variant="body2" text={formattedDescription} cssDesign={styles.description} />
+      <Typography variant="h2" text={title} />
+      <Typography variant="h3" text={formattedDescription}/>
       <Button
         propVariant="contained"
         onClickEvent={onButtonClick}
         buttonText={buttonText}
-        cssDesign={styles.button}
+        type="contained"
       />
     </CardContainer>
   );

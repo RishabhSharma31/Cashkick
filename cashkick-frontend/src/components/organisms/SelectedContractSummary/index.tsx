@@ -43,15 +43,6 @@ const Divider = styled('hr')({
   margin: '8px 0',
 });
 
-const styles = {
-    labelText: {
-        color: '#A5A5A6'
-    },
-    valueText: {
-        fontWeight: 'bold'
-    }
-}
-
 const SelectedContractSummaryCard: React.FC<SelectedContractCardProps> = ({
   term,
   selectedContracts,
@@ -63,32 +54,33 @@ const SelectedContractSummaryCard: React.FC<SelectedContractCardProps> = ({
 }) => {
   return (
     <CardContainer>
-      <Typography variant="h6" text='Summary' cssDesign={styles.valueText} />
+      <Typography variant="h2" text='Summary' />
       <LabelBox>
-        <Typography variant="body2" text='Term' cssDesign={styles.labelText} />
-        <Typography variant="body2" text={term} cssDesign={styles.valueText} />
+        <Typography variant="h3" text='Term' />
+        <Typography variant="h4" text={term} />
       </LabelBox>
       <LabelBox>
-        <Typography variant="body2" text='Selected contracts' cssDesign={styles.labelText} />
-        <Typography variant="body2" text={`${selectedContracts}`} cssDesign={styles.valueText} />
+        <Typography variant="h3" text='Selected contracts' />
+        <Typography variant="h4" text={`${selectedContracts}`} />
       </LabelBox>
       <LabelBox>
-        <Typography variant="body2" text='Pay back amount' cssDesign={styles.labelText} />
-        <Typography variant="body2" text={payBackAmount} cssDesign={styles.valueText} />
+        <Typography variant="h3" text='Pay back amount' />
+        <Typography variant="h4" text={payBackAmount} />
       </LabelBox>
       <LabelBox>
-        <Typography variant="body2" text='Rate %' cssDesign={styles.labelText} />
-        <Typography variant="body2" cssDesign={styles.valueText} text={`(${ratePercentage}) ${rateAmount}`} />
+        <Typography variant="h3" text='Rate %' />
+        <Typography variant="h4" text={`(${ratePercentage}) ${rateAmount}`} />
       </LabelBox>
       <Divider />
       <LabelBox>
-        <Typography variant="body2" text='Total Payout' cssDesign={styles.labelText} />
-        <Typography variant="body2" text={totalPayout} cssDesign={styles.valueText} />
+        <Typography variant="h3" text='Total Payout' />
+        <Typography variant="h4" text={totalPayout} />
       </LabelBox>
       <ButtonComponent
         propVariant="contained"
         onClickEvent={onSubmit}
         buttonText="Submit Your Credit"
+        type="contained"
       />
     </CardContainer>
   );

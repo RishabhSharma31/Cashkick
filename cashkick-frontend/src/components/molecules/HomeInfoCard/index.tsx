@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Stack, Chip, CircularProgress } from "@mui/material";
 import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
 import Typography from "../../atoms/Typography";
+import theme from "../../../../themes";
 
 
 export interface DueOutstandingCardProps {
@@ -48,18 +49,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-  },
-  titleText: {
-    color: "#A0A3BD",
-    fontSize: "0.875rem",
-    fontWeight: "500",
-  },
-  valueText: {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    marginTop: "8px",
-    color: "#FFFFFF",
-  },
+  }
 };
 
 const DueOutstandingCard: React.FC<DueOutstandingCardProps> = ({
@@ -79,8 +69,8 @@ const DueOutstandingCard: React.FC<DueOutstandingCardProps> = ({
           </Box>
           <Chip label={`Due in ${dueInDays}`} sx={styles.chipStyle} size="small" />
         </Stack>
-        <Typography variant="body2" cssDesign={styles.titleText} text={`Due - ${dueDate}`}/>
-        <Typography variant="h5" cssDesign={styles.valueText} text={dueAmount} />
+        <Typography variant="h3" text={`Due - ${dueDate}`}/>
+        <Typography variant="h2" text={dueAmount} />
       </Box>
 
       {/* Outstanding Box */}
@@ -91,14 +81,14 @@ const DueOutstandingCard: React.FC<DueOutstandingCardProps> = ({
             value={progressValue}
             size={60}
             thickness={4}
-            sx={{ color: "#75D1E0" }}
+            sx={{ color: theme.palette.secondary.main }}
           />
           <Box sx={styles.circularTextWrapper}>
-            <Typography variant="caption" cssDesign={styles.titleText} text={`${progressValue}%`}/>
+            <Typography variant="caption" text={`${progressValue}%`}/>
           </Box>
         </Box>
-        <Typography variant="body2" cssDesign={styles.titleText} text="Outstanding amount" />
-        <Typography variant="h5" cssDesign={styles.valueText} text={outstandingAmount} />
+        <Typography variant="h3" text="Outstanding amount" />
+        <Typography variant="h2" text={outstandingAmount} />
       </Box>
     </Box>
   );

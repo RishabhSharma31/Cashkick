@@ -56,13 +56,13 @@ const NameCashKickPopup: React.FC<NameCashKickPopupProps> = ({ open, onClose, on
           <ButtonComponent
             propVariant="outlined"
             onClickEvent={onClose}
-            cssDesign={{ color: '#FFFFFF', borderColor: '#A5A5A6' }}
             buttonText='Cancel'
+            type='outline'
           />
           <ButtonComponent
             propVariant="contained"
             onClickEvent={handleSubmit}
-            cssDesign={{ backgroundColor: '#8C52FF', color: '#FFFFFF' }}
+            type='contained'
             buttonText='Create Cash Kick'
           />
         </ButtonContainer>

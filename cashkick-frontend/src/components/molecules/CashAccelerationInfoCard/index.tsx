@@ -35,18 +35,7 @@ const styles = {
   iconStyle: {
     fontSize: 40,
     color: "#A996F2", 
-  },
-  titleText: {
-    color: "#A0A3BD",
-    fontSize: "0.875rem",
-    fontWeight: "500",
-  },
-  valueText: {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    marginTop: "8px",
-    color: "#FFFFFF",
-  },
+  }
 };
 
 const CreditDetailsCard: React.FC<CreditDetailsCardProps> = ({
@@ -61,8 +50,8 @@ const CreditDetailsCard: React.FC<CreditDetailsCardProps> = ({
         <Box sx={styles.iconBox}>
           <CalendarMonthOutlinedIcon sx={{ ...styles.iconStyle, color: "#A996F2" }} />
         </Box>
-        <Typography cssDesign={styles.titleText} text="Term cap" />
-        <Typography cssDesign={styles.valueText} text={termCap} />
+        <Typography variant="h3" text="Term cap" />
+        <Typography variant="h2" text={termCap} />
       </Box>
 
       {/* Available Credit */}
@@ -70,8 +59,8 @@ const CreditDetailsCard: React.FC<CreditDetailsCardProps> = ({
         <Box sx={styles.iconBox}>
           <AttachMoneyOutlinedIcon sx={{ ...styles.iconStyle, color: "#75D1E0" }} />
         </Box>
-        <Typography cssDesign={styles.titleText} text="Available credit" />
-        <Typography cssDesign={styles.valueText} text={availableCredit} />
+        <Typography variant="h3" text="Available credit" />
+        <Typography variant="h2" text={availableCredit} />
       </Box>
 
       {/* Max Interest Rate */}
@@ -79,8 +68,8 @@ const CreditDetailsCard: React.FC<CreditDetailsCardProps> = ({
         <Box sx={styles.iconBox}>
           <PercentOutlinedIcon sx={{ ...styles.iconStyle, color: "#E6C08C" }} />
         </Box>
-        <Typography cssDesign={styles.titleText} text="Max interest rate" />
-        <Typography cssDesign={styles.valueText} text={maxInterestRate} />
+        <Typography variant="h3" text="Max interest rate" />
+        <Typography variant="h2" text={maxInterestRate} />
       </Box>
     </Box>
   );

@@ -12,11 +12,6 @@ export default {
       options: ["text", "outlined", "contained"],
       defaultValue: "contained",
     },
-    color: {
-      control: "select",
-      options: ["inherit", "primary", "secondary", "success", "error", "info", "warning"],
-      defaultValue: "primary",
-    },
     onClickEvent: { action: "clicked" },
   },
 } as Meta<ButtonProps>;
@@ -28,7 +23,7 @@ export const LearnMore = Template.bind({});
 LearnMore.args = {
   buttonText: "Learn More",
   propVariant: "outlined",
-  color: "primary",
+  type: "outline",
 };
 
 // NewCashkick Example Story
@@ -36,7 +31,7 @@ export const NewCashkick = Template.bind({});
 NewCashkick.args = {
   buttonText: "New Cash Kick",
   propVariant: "contained",
-  customColor: "#6C5DD3",
+  type: "contained",
 };
 
 // Review Your Credit Button Story
@@ -44,7 +39,7 @@ export const ReviewCredit = Template.bind({});
 ReviewCredit.args = {
   buttonText: "Review Your Credit",
   propVariant: "contained",
-  customColor: "#6C5DD3",
+  type: "contained",
 };
 
 // Submit Your Credit Button Story
@@ -52,7 +47,7 @@ export const SubmitCredit = Template.bind({});
 SubmitCredit.args = {
   buttonText: "Submit Your Credit",
   propVariant: "contained",
-  customColor: "#6C5DD3",
+  type: "contained",
 };
 
 // Create Cash Kick Button Story
@@ -60,7 +55,7 @@ export const CreateCashkick = Template.bind({});
 CreateCashkick.args = {
   buttonText: "Create Cash Kick",
   propVariant: "contained",
-  customColor: "#6C5DD3",
+  type: "contained",
 };
 
 // Cancel Button Story
@@ -68,5 +63,5 @@ export const Cancel = Template.bind({});
 Cancel.args = {
   buttonText: "Cancel",
   propVariant: "text",
-  customColor: "#2D2D30",
+  type: "reset",
 };

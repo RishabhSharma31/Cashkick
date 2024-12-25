@@ -11,21 +11,6 @@ export interface WelcomeCardProps {
   onButtonClick: () => void;
 }
 
-const styles = {
-      title: {
-        fontWeight: 'bold', 
-        marginBottom: '16px'
-      },
-      description: {
-        marginBottom: '8px'
-      },
-      descriptionAmount: {
-        fontWeight: 'bold',
-        color: '#FFD700',
-        marginBottom: '16px',
-      }
-}
-
 const CardContainer = styled(Box)(({ theme }) => ({
     position: 'relative',
     display: 'flex',
@@ -57,21 +42,14 @@ const WelcomeCard: React.FC<WelcomeCardProps> = ({
   return (
     <CardContainer>
       <ContentContainer>
-        <Typography variant="h4" cssDesign={styles.title} text={title} />
-        <Typography variant="body1" cssDesign={styles.description} text={description} />
-        <Typography variant="h5" cssDesign={styles.descriptionAmount} text={amount} />
+        <Typography variant="h2" text={title} />
+        <Typography variant="h3" text={description} />
+        <Typography variant="h2" text={amount} />
       <Button
         propVariant="outlined"
         onClickEvent={onButtonClick}
         buttonText='Learn More'
-        cssDesign={{
-            borderColor: '#FFFFFF', 
-            color: '#FFFFFF', 
-            textTransform: 'none',
-            fontWeight: 'bold',
-            backgroundColor: 'transparent',
-            borderRadius: '12px',
-        }}
+        type='outline'
       />
       </ContentContainer>
     </CardContainer>

@@ -7,11 +7,6 @@ export default {
   component: Typography,
   argTypes: {
     text: { control: 'text', description: 'Text content to display' },
-    cssDesign: {
-      color: "#A0A3BD",
-      fontSize: "0.875rem",
-      fontWeight: "500",
-    },
     variant: { 
       control: { 
         type: 'select', 
@@ -27,21 +22,11 @@ const Template: StoryFn<TypographyProps> = (args) => <Typography {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   text: "Sample Text",
-  cssDesign: {
-    color: "#A0A3BD",
-    fontSize: "0.875rem",
-    fontWeight: "500",
-  },
   variant: "body1",
 };
 
 export const Seeder = Template.bind({});
 Seeder.args = {
   text: "Seeder",
-  cssDesign: {
-    color: "#A0A3BD",
-    fontSize: "0.875rem",
-    fontWeight: "500",
-  },
   variant: "h1",
 };

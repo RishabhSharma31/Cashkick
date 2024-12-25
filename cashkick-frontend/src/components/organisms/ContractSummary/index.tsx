@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Slider, styled } from '@mui/material';
 import Typography from '../../atoms/Typography';
 import ButtonComponent from '../../atoms/Button';
+import theme from '../../../../themes';
 
 export interface SummaryCardProps {
   term: string;
@@ -47,15 +48,6 @@ const Divider = styled('hr')({
   margin: '8px 0',
 });
 
-const styles = {
-    labelText: {
-        color: '#A5A5A6'
-    },
-    valueText: {
-        fontWeight: 'bold'
-    }
-}
-
 const SummaryCard: React.FC<SummaryCardProps> = ({
   term,
   selectedContracts,
@@ -71,22 +63,22 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
 }) => {
   return (
     <CardContainer>
-      <Typography variant="h6" text='Summary' cssDesign={styles.valueText} />
+      <Typography variant="h2" text='Summary'/>
       <LabelBox>
-        <Typography variant="body2" text='Term' cssDesign={styles.labelText} />
-        <Typography variant="body2" text={term} cssDesign={styles.valueText} />
+        <Typography variant="h3" text='Term'/>
+        <Typography variant="h4" text={term} />
       </LabelBox>
       <LabelBox>
-        <Typography variant="body2" text='Selected contracts' cssDesign={styles.labelText} />
-        <Typography variant="body2" text={`${selectedContracts}`} cssDesign={styles.valueText} />
+        <Typography variant="h3" text='Selected contracts' />
+        <Typography variant="h4" text={`${selectedContracts}`} />
       </LabelBox>
       <LabelBox>
-        <Typography variant="body2" text='Slide to autoselect' cssDesign={styles.labelText} />
+        <Typography variant="h3" text='Slide to autoselect'/>
         <ButtonComponent
           propVariant="outlined"
-          cssDesign={{ color: '#FFFFFF', borderColor: '#A5A5A6' }}
           onClickEvent={onReset}
           buttonText='Reset'
+          type='reset'
         />
       </LabelBox>
       <SliderContainer>
@@ -95,28 +87,29 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
           onChange={(e, value) => onSliderChange(value as number)}
           aria-label="Auto-select Slider"
           sx={{
-            color: '#8C52FF',
+            color: theme.palette.secondary.main,
           }}
         />
       </SliderContainer>
-      <Typography variant="body2" cssDesign={styles.labelText} text={`${sliderValue.toFixed(2)} selected of ${maxAmount}`} />
+      <Typography variant="h3" text={`${sliderValue.toFixed(2)} selected of ${maxAmount}`} />
       <LabelBox>
-        <Typography variant="body2" text='Pay back amount' cssDesign={styles.labelText} />
-        <Typography variant="body2" text={payBackAmount} cssDesign={styles.valueText} />
+        <Typography variant="h3" text='Pay back amount' />
+        <Typography variant="h4" text={payBackAmount} />
       </LabelBox>
       <LabelBox>
-        <Typography variant="body2" text='Rate %' cssDesign={styles.labelText} />
-        <Typography variant="body2" cssDesign={styles.valueText} text={`(${ratePercentage}) ${rateAmount}`} />
+        <Typography variant="h3" text='Rate %' />
+        <Typography variant="h4" text={`(${ratePercentage}) ${rateAmount}`} />
       </LabelBox>
       <Divider />
       <LabelBox>
-        <Typography variant="body2" text='Total Payout' cssDesign={styles.labelText} />
-        <Typography variant="body2" text={totalPayout} cssDesign={styles.valueText} />
+        <Typography variant="h3" text='Total Payout' />
+        <Typography variant="h4" text={totalPayout} />
       </LabelBox>
       <ButtonComponent
         propVariant="contained"
         onClickEvent={onReview}
         buttonText="Review Your Credit"
+        type='contained'
       />
     </CardContainer>
   );
