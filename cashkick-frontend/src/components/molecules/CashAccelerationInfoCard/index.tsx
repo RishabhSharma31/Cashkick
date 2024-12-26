@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import PercentOutlinedIcon from "@mui/icons-material/PercentOutlined";
@@ -11,32 +11,43 @@ export interface CreditDetailsCardProps {
   maxInterestRate: string;
 }
 
-const styles = {
-  cardContainer: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 2,
-    justifyContent: "center",
-    backgroundColor: "transparent",
-  },
-  detailBox: {
-    flex: 1,
-    backgroundColor: "#1C1C28",
-    borderRadius: "12px",
-    padding: 3,
-    textAlign: "center",
-  },
-  iconBox: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 1,
-  },
-  iconStyle: {
-    fontSize: 40,
-    color: "#A996F2", 
-  }
-};
+const CardContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "row",
+  gap: 2,
+  justifyContent: "center",
+  backgroundColor: theme.palette.background.paper,
+}));
+
+const DetailContainer = styled(Box)(({ theme }) => ({
+  flex: 1,
+  backgroundColor: "#1C1C28",
+  borderRadius: "12px",
+  padding: 3,
+  textAlign: "center",
+}));
+
+const IconContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  marginBottom: 1,
+}));
+
+const CalendarIcon = styled(CalendarMonthOutlinedIcon)(({theme}) => ({
+  fontSize: 40,
+  color: "#A996F2", 
+}));
+
+const AttachMoneyIcon = styled(AttachMoneyOutlinedIcon)(({theme}) => ({
+  fontSize: 40,
+  color: "#75D1E0", 
+}));
+
+const PercentageIcon = styled(PercentOutlinedIcon)(({theme}) => ({
+  fontSize: 40,
+  color: "#E6C08C", 
+}));
 
 const CreditDetailsCard: React.FC<CreditDetailsCardProps> = ({
   termCap,
@@ -44,34 +55,34 @@ const CreditDetailsCard: React.FC<CreditDetailsCardProps> = ({
   maxInterestRate,
 }) => {
   return (
-    <Box sx={styles.cardContainer}>
+    <CardContainer>
       {/* Term Cap */}
-      <Box sx={styles.detailBox}>
-        <Box sx={styles.iconBox}>
-          <CalendarMonthOutlinedIcon sx={{ ...styles.iconStyle, color: "#A996F2" }} />
-        </Box>
+      <DetailContainer>
+        <IconContainer>
+          <CalendarIcon />
+        </IconContainer>
         <Typography variant="h3" text="Term cap" />
         <Typography variant="h2" text={termCap} />
-      </Box>
+      </DetailContainer>
 
       {/* Available Credit */}
-      <Box sx={styles.detailBox}>
-        <Box sx={styles.iconBox}>
-          <AttachMoneyOutlinedIcon sx={{ ...styles.iconStyle, color: "#75D1E0" }} />
-        </Box>
+      <DetailContainer>
+        <IconContainer>
+          <AttachMoneyIcon />
+        </IconContainer>
         <Typography variant="h3" text="Available credit" />
         <Typography variant="h2" text={availableCredit} />
-      </Box>
+      </DetailContainer>
 
       {/* Max Interest Rate */}
-      <Box sx={styles.detailBox}>
-        <Box sx={styles.iconBox}>
-          <PercentOutlinedIcon sx={{ ...styles.iconStyle, color: "#E6C08C" }} />
-        </Box>
+      <DetailContainer>
+        <IconContainer>
+          <PercentageIcon />
+        </IconContainer>
         <Typography variant="h3" text="Max interest rate" />
         <Typography variant="h2" text={maxInterestRate} />
-      </Box>
-    </Box>
+      </DetailContainer>
+    </CardContainer>
   );
 };
 

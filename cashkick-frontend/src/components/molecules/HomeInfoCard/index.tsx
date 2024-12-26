@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Stack, Chip, CircularProgress } from "@mui/material";
+import { Box, Stack, Chip, CircularProgress, styled } from "@mui/material";
 import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
 import Typography from "../../atoms/Typography";
 import theme from "../../../../themes";
-
 
 export interface DueOutstandingCardProps {
   dueDate: string;
@@ -13,44 +12,47 @@ export interface DueOutstandingCardProps {
   progressValue: number;
 }
 
-const styles = {
-  cardContainer: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 2,
-    justifyContent: "center",
-    backgroundColor: "transparent",
-  },
-  detailBox: {
-    flex: 1,
-    backgroundColor: "#1C1C28",
-    borderRadius: "12px",
-    padding: 3,
-  },
-  iconStyle: {
-    fontSize: 40,
-    color: "#E57399",
-  },
-  chipStyle: {
-    backgroundColor: "#F9B5C3",
-    color: "#2C1C28",
-    fontWeight: "bold",
-  },
-  circularProgressWrapper: {
-    position: "relative",
-    display: "inline-flex",
-  },
-  circularTextWrapper: {
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    position: "absolute",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }
-};
+const CardContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "row",
+  gap: 2,
+  justifyContent: "center",
+  backgroundColor: theme.palette.background.paper,
+}));
+
+const DetailContainer = styled(Box)(({ theme }) => ({
+  flex: 1,
+  backgroundColor: "#1C1C28",
+  borderRadius: "12px",
+  padding: 3,
+}));
+
+const CircularProgressContainer = styled(Box)(({ theme }) => ({
+  position: "relative",
+  display: "inline-flex",
+}));
+
+const CircularTextContainer = styled(Box)(({ theme }) => ({
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  position: "absolute",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
+
+const ReceiptIcon = styled(ReceiptLongOutlinedIcon)(({theme}) => ({
+  fontSize: 40,
+  color: "#E57399",
+}));
+
+const ChipTag = styled(Chip)(({ theme }) => ({
+  backgroundColor: "#F9B5C3",
+  color: "#2C1C28",
+  fontWeight: "bold",
+}));
 
 const DueOutstandingCard: React.FC<DueOutstandingCardProps> = ({
   dueDate,
@@ -60,22 +62,22 @@ const DueOutstandingCard: React.FC<DueOutstandingCardProps> = ({
   progressValue,
 }) => {
   return (
-    <Box sx={styles.cardContainer}>
+    <CardContainer>
       {/* Due Box */}
-      <Box sx={styles.detailBox}>
+      <DetailContainer>
         <Stack direction="row" justifyContent="space-between" alignItems="center">
           <Box>
-            <ReceiptLongOutlinedIcon sx={styles.iconStyle} />
+            <ReceiptIcon />
           </Box>
-          <Chip label={`Due in ${dueInDays}`} sx={styles.chipStyle} size="small" />
+          <ChipTag label={`Due in ${dueInDays}`} size="small" />
         </Stack>
         <Typography variant="h3" text={`Due - ${dueDate}`}/>
         <Typography variant="h2" text={dueAmount} />
-      </Box>
+      </DetailContainer>
 
       {/* Outstanding Box */}
-      <Box sx={styles.detailBox}>
-        <Box sx={styles.circularProgressWrapper}>
+      <DetailContainer>
+        <CircularProgressContainer>
           <CircularProgress
             variant="determinate"
             value={progressValue}
@@ -83,14 +85,14 @@ const DueOutstandingCard: React.FC<DueOutstandingCardProps> = ({
             thickness={4}
             sx={{ color: theme.palette.secondary.main }}
           />
-          <Box sx={styles.circularTextWrapper}>
-            <Typography variant="caption" text={`${progressValue}%`}/>
-          </Box>
-        </Box>
+          <CircularTextContainer>
+            <Typography variant="h3" text={`${progressValue}%`}/>
+          </CircularTextContainer>
+        </CircularProgressContainer>
         <Typography variant="h3" text="Outstanding amount" />
         <Typography variant="h2" text={outstandingAmount} />
-      </Box>
-    </Box>
+      </DetailContainer>
+    </CardContainer>
   );
 };
 

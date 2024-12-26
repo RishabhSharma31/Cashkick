@@ -8,7 +8,7 @@ const theme = createTheme({
       paper: "#201F24",
     },
     primary: {
-      main: "#1976d2",
+      main: "#413F4D",
     },
     secondary: {
       main: "#6C5DD3",
@@ -19,7 +19,7 @@ const theme = createTheme({
     },
     common: {
       white: "#FFFFFF",
-    }
+    },
   },
   typography: {
     fontFamily: "Gilroy",

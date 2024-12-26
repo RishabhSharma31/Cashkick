@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import IconButtonComponent, { IconButtonProps } from "./index";
-import Icon from '@mui/material/Icon';
+import { action } from '@storybook/addon-actions';
 import { HomeOutlined, Paid } from '@mui/icons-material';
 
 
@@ -21,12 +21,12 @@ export const Home = Template.bind({});
 Home.args = {
   icon: <HomeOutlined />,
   buttonText: "Hone",
-  onClick: () => console.log('Button clicked'),
+  onClick: action('button-click'),
 };
 
 export const CashAcceleration = Template.bind({});
 CashAcceleration.args = {
   icon: <Paid />,
   buttonText: "Cash Acceleration",
-  onClick: () => console.log('Button clicked'),
+  onClick: action('button-click'),
 };

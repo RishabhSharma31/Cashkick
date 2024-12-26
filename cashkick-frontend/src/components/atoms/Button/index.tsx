@@ -10,26 +10,25 @@ export interface ButtonProps {
 
 const OutlineButton = styled(Button)(({ theme }) => ({
   borderColor: theme.palette.common.white, 
-  color: theme.palette.common.white, 
+  color: theme.palette.common.white,
+  backgroundColor: 'transparent', 
   textTransform: 'none',
-  fontWeight: 'bold',
-  backgroundColor: 'transparent',
   borderRadius: '12px',
 }));
 
 const ContainedButton = styled(Button)(({ theme }) => ({
   borderColor: theme.palette.secondary.main, 
-  color: theme.palette.secondary.main, 
+  color: theme.palette.common.white, 
+  backgroundColor: theme.palette.secondary.main, 
   textTransform: 'none',
-  fontWeight: 'bold',
   borderRadius: '12px',
 }));
 
 const ResetButton = styled(Button)(({ theme }) => ({
   borderColor: theme.palette.background.paper, 
-  color: theme.palette.background.paper, 
+  color: theme.palette.common.white, 
+  backgroundColor: theme.palette.background.paper, 
   textTransform: 'none',
-  fontWeight: 'bold',
   borderRadius: '12px',
 }));
 
