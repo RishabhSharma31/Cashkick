@@ -8,7 +8,7 @@ describe('ButtonComponent', () => {
     buttonText: "Click Me",
     onClickEvent: jest.fn(),
     propVariant: "contained",
-    color: "primary"
+    type: "contained"
   };
 
   it('renders correctly with default props', () => {
@@ -30,14 +30,8 @@ describe('ButtonComponent', () => {
     expect(screen.getByText(defaultProps.buttonText)).toHaveClass("MuiButton-outlinedPrimary");
   });
 
-  it('applies different color correctly', () => {
-    render(<ButtonComponent {...defaultProps} color="success" />);
-    expect(screen.getByText(defaultProps.buttonText)).toHaveClass("MuiButton-root"); 
-    expect(screen.getByText(defaultProps.buttonText)).toHaveClass("MuiButton-containedSuccess");
-  });
-
   it('displays correct text', () => {
-    render(<ButtonComponent buttonText="Test Button" onClickEvent={jest.fn()} />);
+    render(<ButtonComponent type="contained" buttonText="Test Button" onClickEvent={jest.fn()} />);
     expect(screen.getByText("Test Button")).toBeInTheDocument();
   });
 

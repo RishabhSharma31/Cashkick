@@ -1,37 +1,77 @@
 import React from "react";
-import { Button } from "@mui/material";
+import { Button, styled } from "@mui/material";
 
 export interface ButtonProps {
   buttonText: string;
   onClickEvent: () => void;
   propVariant?: "text" | "outlined" | "contained";
-  color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning" | string; 
-  customColor?: string;
+  type: "outline" | "contained" | "reset";
 }
+
+const OutlineButton = styled(Button)(({ theme }) => ({
+  borderColor: theme.palette.common.white, 
+  color: theme.palette.common.white,
+  backgroundColor: 'transparent', 
+  textTransform: 'none',
+  borderRadius: '12px',
+}));
+
+const ContainedButton = styled(Button)(({ theme }) => ({
+  borderColor: theme.palette.secondary.main, 
+  color: theme.palette.common.white, 
+  backgroundColor: theme.palette.secondary.main, 
+  textTransform: 'none',
+  borderRadius: '12px',
+}));
+
+const ResetButton = styled(Button)(({ theme }) => ({
+  borderColor: theme.palette.background.paper, 
+  color: theme.palette.common.white, 
+  backgroundColor: theme.palette.background.paper, 
+  textTransform: 'none',
+  borderRadius: '12px',
+}));
 
 const ButtonComponent: React.FC<ButtonProps> = ({
   buttonText,
   onClickEvent,
   propVariant = "contained",
-  color,
-  customColor,
+  type
 }) => {
-  const buttonStyles = customColor
-    ? {
-        backgroundColor: customColor,
-        color: "#fff", // Adjust as necessary for contrast
-        "&:hover": {
-          backgroundColor: `${customColor}CC`, // Slightly transparent for hover effect
-        },
-      }
-    : undefined;
+
+  if(type == "outline"){
+    return (
+      <OutlineButton 
+      variant={propVariant}
+      onClick={onClickEvent}>
+        {buttonText}
+      </OutlineButton>
+    );
+  }
+
+  if(type == "contained"){
+    return (
+      <ContainedButton 
+      variant={propVariant}
+      onClick={onClickEvent}>
+        {buttonText}
+      </ContainedButton>
+    );
+  }
+  if(type == "reset"){
+    return (
+      <ResetButton 
+      variant={propVariant}
+      onClick={onClickEvent}>
+        {buttonText}
+      </ResetButton>
+    );
+  }
 
   return (
     <Button
       variant={propVariant}
       onClick={onClickEvent}
-      color={color as any} // Cast to allow MUI color variants or use `sx` for styles
-      sx={buttonStyles}
     >
       {buttonText}
     </Button>
@@ -39,4 +79,3 @@ const ButtonComponent: React.FC<ButtonProps> = ({
 };
 
 export default ButtonComponent;
-

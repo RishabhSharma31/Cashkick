@@ -22,7 +22,6 @@ const Icon: React.FC<IconProps> = ({ iconPath, cssDesign }) => {
     );
   }
 
-  return null;
 };
 
 export default Icon;

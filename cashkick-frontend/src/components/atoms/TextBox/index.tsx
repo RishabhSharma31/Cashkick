@@ -11,6 +11,7 @@ export interface InputTextProps {
 const InputText: React.FC<InputTextProps> = ({ cssDesign = "", value, onChange, placeholder }) => {
   return (
     <TextField
+      fullWidth
       variant="outlined"
       value={value}
       onChange={(e) => onChange(e.target.value)}

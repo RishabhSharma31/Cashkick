@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CashKickCard Component matches the snapshot 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-1154xrt"
+  >
+    <h5
+      class="MuiTypography-root MuiTypography-h5 css-1m2xbl4-MuiTypography-root"
+    >
+      Launch a new Cash Kick
+    </h5>
+    <p
+      class="MuiTypography-root MuiTypography-body2 css-1buac67-MuiTypography-root"
+    >
+      You have up to $880,000.00 available for a new cash advance.
+    </p>
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1mqce9w-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="button"
+    >
+      New Cash Kick
+    </button>
+  </div>
+</div>
+`;

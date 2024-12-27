@@ -1,21 +1,17 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import ButtonComponent, { ButtonProps } from "./index";
+import { BUTTON_LABELS } from '../../../Constants';
 
 export default {
   title: "Components/ButtonComponent",
   component: ButtonComponent,
   argTypes: {
-    buttonText: { control: "text", defaultValue: "Click Me" },
+    buttonText: { control: "text", defaultValue: BUTTON_LABELS.submit },
     propVariant: {
       control: "select",
       options: ["text", "outlined", "contained"],
       defaultValue: "contained",
-    },
-    color: {
-      control: "select",
-      options: ["inherit", "primary", "secondary", "success", "error", "info", "warning"],
-      defaultValue: "primary",
     },
     onClickEvent: { action: "clicked" },
   },
@@ -26,47 +22,47 @@ const Template: StoryFn<ButtonProps> = (args) => <ButtonComponent {...args} />;
 // Learn more button
 export const LearnMore = Template.bind({});
 LearnMore.args = {
-  buttonText: "Learn More",
+  buttonText: BUTTON_LABELS.learnMore,
   propVariant: "outlined",
-  color: "primary",
+  type: "outline",
 };
 
 // NewCashkick Example Story
 export const NewCashkick = Template.bind({});
 NewCashkick.args = {
-  buttonText: "New Cash Kick",
+  buttonText: BUTTON_LABELS.newCashKick,
   propVariant: "contained",
-  customColor: "#6C5DD3",
+  type: "contained",
 };
 
 // Review Your Credit Button Story
 export const ReviewCredit = Template.bind({});
 ReviewCredit.args = {
-  buttonText: "Review Your Credit",
+  buttonText: BUTTON_LABELS.reviewCredit,
   propVariant: "contained",
-  customColor: "#6C5DD3",
+  type: "contained",
 };
 
 // Submit Your Credit Button Story
 export const SubmitCredit = Template.bind({});
 SubmitCredit.args = {
-  buttonText: "Submit Your Credit",
+  buttonText: BUTTON_LABELS.submitCredit,
   propVariant: "contained",
-  customColor: "#6C5DD3",
+  type: "contained",
 };
 
 // Create Cash Kick Button Story
 export const CreateCashkick = Template.bind({});
 CreateCashkick.args = {
-  buttonText: "Create Cash Kick",
+  buttonText: BUTTON_LABELS.createCashKick,
   propVariant: "contained",
-  customColor: "#6C5DD3",
+  type: "contained",
 };
 
 // Cancel Button Story
 export const Cancel = Template.bind({});
 Cancel.args = {
-  buttonText: "Cancel",
+  buttonText: BUTTON_LABELS.cancel,
   propVariant: "text",
-  customColor: "#2D2D30",
+  type: "reset",
 };
