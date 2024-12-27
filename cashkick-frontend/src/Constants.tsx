@@ -7,9 +7,9 @@ export const BUTTON_LABELS = {
     submit: "Submit",
     cancel: "Cancel",
     save: "Save",
+    reset: "Reset"
   };
   
-  // Example of constant numbers (used for padding, margins, etc.)
   export const MARGINS = {
     small: 8,
     medium: 16,
@@ -22,6 +22,29 @@ export const BUTTON_LABELS = {
 //     getPosts: "/api/posts",
 //     createPost: "/api/posts/create",
 //   };
+
+export const MOLECULE_TEXT = {
+  termCap: "Term cap",
+  availableCredit: "Available credit",
+  maxInterestRate: "Max interest rate",
+  outstandingAmount: "Outstanding amount"
+}
+
+export const WELCOME_CARD = {
+  title: "Congratulations you are ready to start!",
+  description: "You are approved for funding. We are ready to advance you upto",
+  amount: "$8.8M"
+}
+
+export const SUMMARY_CARD = {
+  summary: "Summary",
+  term: "Term",
+  selectedContracts: "Selected contracts",
+  payBackAmount: "Pay back amount",
+  rate: "Rate %",
+  totalPayout: "Total Payout",
+  slideToAutoselect: "Slide to autoselect",
+}
   
   // Example of status codes (could be used for API responses)
   export const STATUS_CODES = {

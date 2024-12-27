@@ -19,7 +19,7 @@ const theme = createTheme({
     },
     common: {
       white: "#FFFFFF",
-    },
+    }
   },
   typography: {
     fontFamily: "Gilroy",
@@ -46,5 +46,11 @@ const theme = createTheme({
     },
   },
 });
+
+theme.palette.custom = {
+  purple: '#A996F2',
+  skyBlue: '#75D1E0',
+  yellow: '#E6C08C'
+};
 
 export default theme;

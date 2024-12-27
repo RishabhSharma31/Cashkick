@@ -3,6 +3,7 @@ import { Box, Slider, styled } from '@mui/material';
 import Typography from '../../atoms/Typography';
 import ButtonComponent from '../../atoms/Button';
 import theme from '../../../../themes';
+import { SUMMARY_CARD, BUTTON_LABELS } from '../../../Constants';
 
 export interface SummaryCardProps {
   term: string;
@@ -25,7 +26,7 @@ const CardContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: theme.spacing(2),
-  color: '#FFFFFF',
+  color: theme.palette.common.white,
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   maxWidth: '400px',
 }));
@@ -63,21 +64,21 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
 }) => {
   return (
     <CardContainer>
-      <Typography variant="h2" text='Summary'/>
+      <Typography variant="h2" text={SUMMARY_CARD.summary}/>
       <LabelBox>
-        <Typography variant="h3" text='Term'/>
+        <Typography variant="h3" text={SUMMARY_CARD.term}/>
         <Typography variant="h4" text={term} />
       </LabelBox>
       <LabelBox>
-        <Typography variant="h3" text='Selected contracts' />
+        <Typography variant="h3" text={SUMMARY_CARD.selectedContracts} />
         <Typography variant="h4" text={`${selectedContracts}`} />
       </LabelBox>
       <LabelBox>
-        <Typography variant="h3" text='Slide to autoselect'/>
+        <Typography variant="h3" text={SUMMARY_CARD.slideToAutoselect}/>
         <ButtonComponent
           propVariant="outlined"
           onClickEvent={onReset}
-          buttonText='Reset'
+          buttonText={BUTTON_LABELS.reset}
           type='reset'
         />
       </LabelBox>
@@ -93,22 +94,22 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
       </SliderContainer>
       <Typography variant="h3" text={`${sliderValue.toFixed(2)} selected of ${maxAmount}`} />
       <LabelBox>
-        <Typography variant="h3" text='Pay back amount' />
+        <Typography variant="h3" text={SUMMARY_CARD.payBackAmount} />
         <Typography variant="h4" text={payBackAmount} />
       </LabelBox>
       <LabelBox>
-        <Typography variant="h3" text='Rate %' />
+        <Typography variant="h3" text={SUMMARY_CARD.rate} />
         <Typography variant="h4" text={`(${ratePercentage}) ${rateAmount}`} />
       </LabelBox>
       <Divider />
       <LabelBox>
-        <Typography variant="h3" text='Total Payout' />
+        <Typography variant="h3" text={SUMMARY_CARD.totalPayout} />
         <Typography variant="h4" text={totalPayout} />
       </LabelBox>
       <ButtonComponent
         propVariant="contained"
         onClickEvent={onReview}
-        buttonText="Review Your Credit"
+        buttonText={BUTTON_LABELS.reviewCredit}
         type='contained'
       />
     </CardContainer>

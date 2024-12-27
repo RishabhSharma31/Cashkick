@@ -4,6 +4,7 @@ import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import PercentOutlinedIcon from "@mui/icons-material/PercentOutlined";
 import Typography from "../../atoms/Typography";
+import { MOLECULE_TEXT } from "../../../Constants";
 
 export interface CreditDetailsCardProps {
   termCap: string; 
@@ -21,7 +22,7 @@ const CardContainer = styled(Box)(({ theme }) => ({
 
 const DetailContainer = styled(Box)(({ theme }) => ({
   flex: 1,
-  backgroundColor: "#1C1C28",
+  backgroundColor: theme.palette.primary.main,
   borderRadius: "12px",
   padding: 3,
   textAlign: "center",
@@ -36,17 +37,17 @@ const IconContainer = styled(Box)(({ theme }) => ({
 
 const CalendarIcon = styled(CalendarMonthOutlinedIcon)(({theme}) => ({
   fontSize: 40,
-  color: "#A996F2", 
+  color: theme.palette.custom.purple, 
 }));
 
 const AttachMoneyIcon = styled(AttachMoneyOutlinedIcon)(({theme}) => ({
   fontSize: 40,
-  color: "#75D1E0", 
+  color: theme.palette.custom.skyBlue, 
 }));
 
 const PercentageIcon = styled(PercentOutlinedIcon)(({theme}) => ({
   fontSize: 40,
-  color: "#E6C08C", 
+  color: theme.palette.custom.yellow, 
 }));
 
 const CreditDetailsCard: React.FC<CreditDetailsCardProps> = ({
@@ -61,7 +62,7 @@ const CreditDetailsCard: React.FC<CreditDetailsCardProps> = ({
         <IconContainer>
           <CalendarIcon />
         </IconContainer>
-        <Typography variant="h3" text="Term cap" />
+        <Typography variant="h3" text={MOLECULE_TEXT.termCap} />
         <Typography variant="h2" text={termCap} />
       </DetailContainer>
 
@@ -70,7 +71,7 @@ const CreditDetailsCard: React.FC<CreditDetailsCardProps> = ({
         <IconContainer>
           <AttachMoneyIcon />
         </IconContainer>
-        <Typography variant="h3" text="Available credit" />
+        <Typography variant="h3" text={MOLECULE_TEXT.availableCredit} />
         <Typography variant="h2" text={availableCredit} />
       </DetailContainer>
 
@@ -79,7 +80,7 @@ const CreditDetailsCard: React.FC<CreditDetailsCardProps> = ({
         <IconContainer>
           <PercentageIcon />
         </IconContainer>
-        <Typography variant="h3" text="Max interest rate" />
+        <Typography variant="h3" text={MOLECULE_TEXT.maxInterestRate} />
         <Typography variant="h2" text={maxInterestRate} />
       </DetailContainer>
     </CardContainer>
